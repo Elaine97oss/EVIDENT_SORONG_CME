@@ -57,18 +57,36 @@
     <main class="max-w-7xl mx-auto px-4 py-8">
         
         <!-- Header Print (Hanya muncul saat print) -->
-        <div class="hidden print:block mb-8 border-b-2 border-black pb-4">
+        <div class="hidden print:block mb-8 border-b-2 border-black pb-8">
             <h2 id="print-judul" class="text-2xl font-bold text-center mb-6 uppercase tracking-wider">Laporan Evident Checklist CMEP</h2>
-            <table class="font-bold text-lg">
+            <table class="font-bold text-lg w-full mb-8">
                 <tr>
-                    <td class="pr-6 pb-2 uppercase">LOKASI</td>
+                    <td class="pr-6 pb-2 uppercase w-32">LOKASI</td>
                     <td class="pb-2 uppercase">: <span id="print-lokasi-text">GMP SORONG</span></td>
                 </tr>
                 <tr>
-                    <td class="pr-6 uppercase">PERIODE</td>
+                    <td class="pr-6 uppercase w-32">PERIODE</td>
                     <td class="uppercase">: <span id="print-periode-text">JANUARI 2026</span></td>
                 </tr>
             </table>
+
+            <!-- Bagian Logo (Mengisi ruang kosong di bawah tabel saat Print) -->
+            <!-- w-full dan mx-auto memastikan logo sentiasa di tengah secara mendatar -->
+            <div class="w-full mx-auto flex justify-center items-center gap-10 mt-12 mb-8 print:mt-56">
+                
+                <!-- CARA MENUKAR LOGO KIRI: Ganti URL di dalam atribut src="" di bawah -->
+                <!-- Anda juga boleh meletakkan fail tempatan, contoh: src="assets/logo1.png" -->
+                <img src="https://www.telkom.co.id/minio/show/data/image_upload/page/1594108255409_compress_logo%20telkom%20indonesia.png" alt="Logo Telkom" class="h-24 object-contain">
+                
+                <!-- Garis pembatas di tengah (Pilihan, boleh dipadam jika tidak perlu) -->
+                <div class="h-20 border-l-2 border-gray-400"></div>
+                
+                <!-- CARA MENUKAR LOGO KANAN: Saat ini menggunakan ikon & teks -->
+                <!-- Jika ada gambar, PADAM kod <div> di bawah ini dan GANTIKAN dengan: -->
+                <!-- <img src="pautan_atau_folder_logo2.png" alt="Logo Kanan" class="h-24 object-contain"> -->
+                <img src="https://telkomproperty.co.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoTelkomHeader.ff908c55.png&w=3840&q=75" alt="Logo Kanan" class="h-24 object-contain">
+
+            </div>
         </div>
 
         <!-- Setting Laporan & Print Button (Sembunyi saat print) -->
