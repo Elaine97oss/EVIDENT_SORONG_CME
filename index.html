@@ -70,8 +70,7 @@
                 </tr>
             </table>
 
-            <!-- Bagian Logo (Mengisi ruang kosong di bawah tabel saat Print) -->
-            <!-- w-full dan mx-auto memastikan logo sentiasa di tengah secara mendatar -->
+            <!-- Bagian Logo dengan mt-20 agar lebih turun ke bawah -->
             <div class="w-full mx-auto flex justify-center items-center gap-10 mt-12 mb-8 print:mt-56">
                 
                 <!-- CARA MENUKAR LOGO KIRI: Ganti URL di dalam atribut src="" di bawah -->
@@ -138,7 +137,7 @@
                 <div class="ml-3">
                     <p class="text-sm text-blue-700">
                         <strong>Panduan:</strong> 
-                        Pilih <strong>Jenis Checklist</strong>, Lokasi dan Periode di atas sebelum klik Cetak PDF. Evident Harian dibatasi <strong>Maksimal 20 Foto</strong> (Hari Kerja). Evident akan otomatis tersusun rapih menyesuaikan ukuran kertas A4.
+                        Pilih <strong>Jenis Checklist</strong>, Lokasi dan Periode di atas sebelum klik Cetak PDF. Evident Harian dibatasi <strong>Maksimal 20 Foto</strong> (Mengikuti Hari Kerja). Evident akan otomatis tersusun rapih menyesuaikan ukuran kertas A4.
                     </p>
                 </div>
             </div>
@@ -161,126 +160,230 @@
     <script>
         // --- 1. DATA STRUCTURE ---
 
-        // Data Checklist CMEP
+        // Data Checklist CMEP (Diatur ulang sangat persis dengan dokumen PDF)
         const checklistDataCMEP = [
             {
-                category: "1. Pemeliharaan Sipil & Arsitektural",
+                category: "1. PEMELIHARAAN SIPIL & ARSITEKTURAL",
                 tasks: [
-                    { id: "c1-t1", name: "Pemeliharaan Dinding Tembok", freq: "1 x 6 Bulan", type: "long", period: "6 Bulan" },
-                    { id: "c1-t2", name: "Pemeliharaan Dinding Kaca", freq: "1 x Sebulan", type: "short", max: 1 },
-                    { id: "c1-t3", name: "Pemeliharaan Dinding Keramik", freq: "1 x Triwulan", type: "long", period: "Triwulan" },
-                    { id: "c1-t4", name: "Pemeliharaan Halaman & Pagar", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-t5", name: "Pemeliharaan Jendela & Pintu", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-t6", name: "Pemeliharaan Lantai Karpet/Keramik/Marmer/Vynil", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-t7", name: "Pemeliharaan Plafond (Semua Jenis)", freq: "Kondisional", type: "short", max: 10 }
+                    { id: "c1-1", name: "PEMELIHARAAN DINDING TEMBOK EXTERIOR INTERIOR - Dinding Tembok", freq: "Kondisional / 1 x 6 Bulan", type: "long", period: "6 Bulan" },
+                    { id: "c1-2", name: "PEMELIHARAAN DINDING KACA - Dinding Kaca", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c1-3", name: "PEMELIHARAAN DINDING KERAMIK - Dinding Keramik", freq: "1 x Triwulan", type: "long", period: "Triwulan" },
+                    { id: "c1-4", name: "PEMELIHARAAN DINDING MARMER - Dinding Marmer", freq: "1 x Triwulan", type: "long", period: "Triwulan" },
+                    { id: "c1-5", name: "PEMELIHARAAN DINDING WALLPAPER - Dinding Wallpaper", freq: "1 x Triwulan", type: "long", period: "Triwulan" },
+                    { id: "c1-6", name: "PEMELIHARAAN DINDING GLASS BLOCK - Dinding Glass Block", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-7", name: "PEMELIHARAAN HALAMAN DAN PAGAR - Halaman", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-8", name: "PEMELIHARAAN JENDELA & PINTU - Jendela Toilet", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-9", name: "PEMELIHARAAN LANTAI KARPET - Lantai Karpet", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-10", name: "PEMELIHARAAN LANTAI KERAMIK - Lantai Keramik", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-11", name: "PEMELIHARAAN LANTAI MARMER - Lantai Marmer", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-12", name: "PEMELIHARAAN LANTAI VYNIL - Lantai Vynil", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-13", name: "PEMELIHARAAN FLOOR HINGE - Floor Hinge", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-14", name: "PEMELIHARAAN PINTU ALUMUNIUM - Pintu Alumunium", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-15", name: "PEMELIHARAAN PINTU BESI - Pintu Besi", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-16", name: "PEMELIHARAAN PINTU PANEL KAYU JATI/KAMPER - Pintu Panel Kayu Jati", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-17", name: "PEMELIHARAAN PINTU TANGGA DARURAT - Pintu Tangga Darurat", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-18", name: "PEMELIHARAAN PLAFOND ACCOUSTIC - Plafond Accoustic", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-19", name: "PEMELIHARAAN PLAFOND BETON CAT - Plafond Beton Cat.", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-20", name: "PEMELIHARAAN PLAFOND GYPSUM - Plafond Gypsum", freq: "Kondisional", type: "short", max: 2 }
                 ]
             },
             {
-                category: "2. Pemeliharaan Instalasi Sistem Plumbing",
+                category: "2. PEMELIHARAAN INSTALASI SISTEM PLUMBING",
                 tasks: [
-                    { id: "p1-t1", name: "Booster Pump", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "p1-t2", name: "Closet Duduk (Pelumasan)", freq: "1 x Triwulan", type: "long", period: "Triwulan" },
-                    { id: "p1-t3", name: "Closet Duduk/Jongkok (Perawatan Harian)", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "p1-t4", name: "Instalasi Pipa & Kran", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "p1-t5", name: "Septik Tank / STP", freq: "Kondisional", type: "short", max: 5 }
+                    { id: "c2-1", name: "PEMELIHARAAN BOOSTER PUMP - Booster Pump", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "c2-2", name: "PEMELIHARAAN CLOSET - Closet Duduk", freq: "1 x Sehari / 1 x Sebulan / Triwulan", type: "short", max: 20 },
+                    { id: "c2-3", name: "PEMELIHARAAN CLOSET - Closet Jongkok", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "c2-4", name: "PEMELIHARAAN INSTALASI PIPA - Instalasi Pipa", freq: "1 x 2 Minggu / 1 x Seminggu", type: "short", max: 4 },
+                    { id: "c2-5", name: "PEMELIHARAAN KRAN - Kran Dinding", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c2-6", name: "PEMELIHARAAN KRAN - Kran Leher Angsa", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c2-7", name: "PEMELIHARAAN POMPA AIR - Pompa Air", freq: "1 x Sebulan / Triwulan", type: "short", max: 2 },
+                    { id: "c2-8", name: "PEMELIHARAAN POMPA AIR - Pompa Transfer", freq: "1 x Sebulan / Triwulan", type: "short", max: 2 },
+                    { id: "c2-9", name: "PEMELIHARAAN SEPTIK TANK/STP - Septik Tank/Stp", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c2-10", name: "PEMELIHARAAN SHOWER - Shower", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c2-11", name: "PEMELIHARAAN URINOIR - Urinoir", freq: "1 x Sehari / 1 x Sebulan", type: "short", max: 20 },
+                    { id: "c2-12", name: "PEMELIHARAAN VALVE-VALVE - Valve-Valve", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c2-13", name: "PEMELIHARAAN WASTAFEL - Wastafel", freq: "1 x Sehari / 1 x Sebulan", type: "short", max: 20 }
                 ]
             },
             {
-                category: "3. Pemeliharaan AC & Genset",
+                category: "4. PEMELIHARAAN EXHAUST FAN",
                 tasks: [
-                    { id: "a1-t1", name: "Pemeliharaan AC Split / Central", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "a1-t2", name: "Genset & Panel Genset (Pemanasan)", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "a1-t3", name: "Penggantian Pelumas Genset", freq: "Kondisional", type: "short", max: 2 }
+                    { id: "c4-1", name: "PEMELIHARAAN EXHAUST FAN - Exhaust Fan", freq: "1 x Sebulan", type: "short", max: 1 }
                 ]
             },
             {
-                category: "4. Pemeliharaan Instalasi Listrik & Fire Alarm",
+                category: "5. PEMELIHARAAN AC RUANG ADMIN",
                 tasks: [
-                    { id: "e1-t1", name: "Panel MDP/SDP, Perkabelan, Penerangan", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "e1-t2", name: "System FAP/FA/FH (Standby & Cek)", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "e1-t3", name: "Pengetesan Hydrant & Alarm Bell", freq: "1 x 6 Bulan", type: "long", period: "6 Bulan" },
-                    { id: "e1-t4", name: "Uji Coba Hydrant, Sprinkler, Detector", freq: "1 x Setahun", type: "long", period: "1 Tahun" }
+                    { id: "c5-1", name: "PEMELIHARAAN AC RUANG ADMIN - AC Split", freq: "1 x Setiap Triwulan", type: "long", period: "Triwulan" }
+                ]
+            },
+            {
+                category: "6. PEMELIHARAAN CHILLER",
+                tasks: [
+                    { id: "c6-1", name: "PEMELIHARAAN AC CENTRAL - AC Central", freq: "1 x Sehari / Sebulan", type: "short", max: 20 }
+                ]
+            },
+            {
+                category: "7. PEMELIHARAAN GENSET",
+                tasks: [
+                    { id: "c7-1", name: "PEMELIHARAAN GENSET - Genset Dan Panel Genset", freq: "1 x Seminggu / Kondisional", type: "short", max: 4 }
+                ]
+            },
+            {
+                category: "8. PEMELIHARAAN INSTALASI LISTRIK",
+                tasks: [
+                    { id: "c8-1", name: "PEMELIHARAAN INSTALASI LISTRIK - MCB, COS, Relay dan Kontaktor", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c8-2", name: "PEMELIHARAAN INSTALASI LISTRIK - Perkabelan Listrik", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c8-3", name: "INSTALASI PENERANGAN - Lampu, Ballast, Starter, Saklar, Fitting, Kap Lampu & Emergency Batere", freq: "1 x Sehari / Seminggu", type: "short", max: 20 }
+                ]
+            },
+            {
+                category: "10. PEMELIHARAAN SYSTEM FAP/FA/FH",
+                tasks: [
+                    { id: "c10-1", name: "PERALATAN UTAMA/PANEL - Perangkat Sistem FAP/FA/FH", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "c10-2", name: "PEMELIHARAAN ADRESSABLE ALARM SOUNDER - Sounder", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-3", name: "PEMELIHARAAN ADDRESSABLE MANUAL CALL POINT - Manual Call Point", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-4", name: "PEMELIHARAAN ADDRESSABLE OPTICAL SMOKE & HEAD DETECTOR - Smoke & Head Detector", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-5", name: "PEMELIHARAAN JUNCTION BOX FIRE ALARM - Junction Box", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-6", name: "PEMELIHARAAN PILOT LAMP/XENON FLASER - Pilot Lamp/Xenon Flaser", freq: "1 x 6 Bulan", type: "long", period: "6 Bulan" },
+                    { id: "c10-7", name: "PEMELIHARAAN ALARM BELL - Alarm Bell", freq: "1 x 6 Bulan", type: "long", period: "6 Bulan" },
+                    { id: "c10-8", name: "PEMELIHARAAN COMBINATION TYPE HEAD DETECTOR - Combination Type Head Detector", freq: "1 x 6 Bulan", type: "long", period: "6 Bulan" },
+                    { id: "c10-9", name: "PEMELIHARAAN GLASS SENSOR - Glass Sensor", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-10", name: "PEMELIHARAAN INDICATION LAMP - Indication Lamp", freq: "1 x Setahun", type: "long", period: "1 Tahun" },
+                    { id: "c10-11", name: "PEMELIHARAAN IONIZATION SMOKE DETECTOR - Ionization Smoke Detector", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "c10-12", name: "PEMELIHARAAN MANUAL ALARM - Manual Alarm", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-13", name: "PEMELIHARAAN AIR VENT DIA 1\" - Air Vent Dia 1\"", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-14", name: "PEMELIHARAAN CHECK VALVE - Check Valve", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-15", name: "PEMELIHARAAN BUTTERFLY VALVE DIA 6\" LONG STEM - Butterfly Valve", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-16", name: "PEMELIHARAAN HYDRANT PILLAR (HP) TWO WAYS TYPE H.14 - Hydrant Pillar", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-17", name: "PEMELIHARAAN UNIT HYDRANT BOX TYPE B - Hydrant Box Type B", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-18", name: "PEMELIHARAAN POMPA HYDRANT BED DI GEDUNG/ELECTRIK - Pompa Hydrant", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-19", name: "PEMELIHARAAN DIESEL HYDRANT BOX - Diesel Hydrant Box", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-20", name: "PEMELIHARAAN JOCKEY POMP - Jockey Pomp", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c10-21", name: "PEMELIHARAAN APAR - APAR", freq: "1 x Sebulan", type: "short", max: 1 }
+                ]
+            },
+            {
+                category: "11. PENGOPERASIAN DAN PEMELIHARAAN BUILDING AUTOMATIC SYSTEM (BAS)",
+                tasks: [
+                    { id: "c11-1", name: "PEMELIHARAAN BUILDING AUTOMATIC SYSTEM (BAS) - System BAS", freq: "1 x Sehari / 1 x Seminggu", type: "short", max: 20 }
+                ]
+            },
+            {
+                category: "12. PENGOPERASIAN DAN PEMELIHARAAN SYSTEM CCTV",
+                tasks: [
+                    { id: "c12-1", name: "PEMELIHARAAN  MULTIPLEEXER DUPLEX K -16 (DX Pro-16)", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "c12-2", name: "PEMELIHARAAN MONITOR-KAMERA 8\"-20\" - Monitor-Kamera", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "c12-3", name: "PEMELIHARAAN VIDEO RECORDER/HARD DISK - Video Recorder/Hard Disk", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "c12-4", name: "PEMELIHARAAN PAN/TILT/ZOOM CONTROLLER - Pan/Tilt/Zoom", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "c12-5", name: "PEMELIHARAAN CCTV CAMERA - System CCTV", freq: "1 x Sehari / 1 x Sebulan", type: "short", max: 20 }
+                ]
+            },
+            {
+                category: "13. PENGOPERASIAN DAN PEMELIHARAAN TATA SUARA",
+                tasks: [
+                    { id: "c13-1", name: "PENGOPERASIAN DAN PEMELIHARAAN TATA SUARA - Sound System/announcer", freq: "1 x Seminggu", type: "short", max: 4 }
+                ]
+            },
+            {
+                category: "16. PENGOPERASIAN DAN PEMELIHARARAN ACCES CONTROL",
+                tasks: [
+                    { id: "c16-6", name: "PENGOPERASIAN PEMELIHARAAN ACCESS CONTROL - System Access Control", freq: "1 x Sehari / 1 x Sebulan", type: "short", max: 20 }
+                ]
+            },                        
+            {
+                category: "17. PEMELIHARAAN PENANGKAL PETIR DAN GROUNDING SYSTEM",
+                tasks: [
+                    { id: "c17-1", name: "PEMELIHARAAN GROUNDING SYSTEM - System Ground", freq: "1 x Sebulan / Kondisional", type: "short", max: 1 }
                 ]
             }
         ];
 
-        // Data Checklist Housekeeping (HK)
+        // Data Checklist Housekeeping (HK) - (Dibatasi max 20 untuk semua pekerjaan harian)
         const checklistDataHK = [
             {
-                category: "1. Pembersihan Dinding Dalam",
+                category: "1. PEMBERSIHAN DINDING DALAM",
                 tasks: [
-                    { id: "hk1-t1", name: "Dinding Keramik Dalam", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "hk1-t2", name: "Dinding Wallpaper Dalam", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "hk1-t3", name: "Dinding Interior Dalam", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "hk1-t4", name: "Dinding Kaca Interior", freq: "1 x Sehari", type: "short", max: 20 }
+                    { id: "hk1-1", name: "PEMBERSIHAN DINDING KERAMIK DALAM - Dinding Keramik", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "hk1-2", name: "PEMBERSIHAN DINDING WALLPAPER DALAM - Dinding Wallpaper", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk1-3", name: "PEMBERSIHAN DINDING INTERIOR DALAM - Dinding Interior", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk1-4", name: "PEMBERSIHAN DINDING KACA INTERIOR - Dinding Kaca Interior", freq: "1 x Sehari", type: "short", max: 20 }
                 ]
             },
             {
-                category: "2. Pembersihan Dinding Luar",
+                category: "2. PEMBERSIHAN DINDING LUAR",
                 tasks: [
-                    { id: "hk2-t1", name: "Dinding Kusen Alumunium Luar", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "hk2-t2", name: "Dinding Tembok Luar", freq: "1 x Sebulan", type: "short", max: 1 },
-                    { id: "hk2-t3", name: "Dinding Kaca Luar", freq: "1 x Sebulan", type: "short", max: 1 }
+                    { id: "hk2-1", name: "PEMBERSIHAN DINDING KUSEN ALUMUNIUM LUAR - Dinding Kusen Alumunium luar", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk2-2", name: "PEMBERSIHAN DINDING TEMBOK LUAR - Dinding Luar", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "hk2-3", name: "PEMBERSIHAN DINDING KACA LUAR - Dinding Kaca Luar", freq: "1 x Sebulan", type: "short", max: 1 }
                 ]
             },
             {
-                category: "3. Pembersihan Lantai",
+                category: "3. PEMBERSIHAN LANTAI",
                 tasks: [
-                    { id: "hk3-t1", name: "Lantai Keramik/Granit", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "hk3-t2", name: "Keramik Toilet", freq: "6 x Sehari", type: "short", max: 120 }, // 6x Sehari = Max 120/bulan
-                    { id: "hk3-t3", name: "Lantai Vynil", freq: "4 x Sehari", type: "short", max: 80 } // 4x Sehari = Max 80/bulan
+                    { id: "hk3-1", name: "PEMBERSIHAN LANTAI KERAMIK/GRANIT - Lantai Keramik/Granit", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "hk3-2", name: "PEMBERSIHAN LANTAI KERAMIK TOILET - Keramik Toilet", freq: "6 x Sehari", type: "short", max: 20 },
+                    { id: "hk3-3", name: "PEMBERSIHAN LANTAI VYNIL - Lantai Vynil", freq: "4 x Sehari", type: "short", max: 20 }
                 ]
             },
             {
-                category: "4. Pembersihan Plafon",
+                category: "4. PEMBERSIHAN PLAFON",
                 tasks: [
-                    { id: "hk4-t1", name: "Plafon Acustik", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "hk4-t2", name: "Plafon Gypsum", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "hk4-t3", name: "Plafon Defuser AC", freq: "1 x Seminggu", type: "short", max: 4 }
+                    { id: "hk4-1", name: "PEMBERSIHAN PLAFON ACUSTIK - Plafon Acustik", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "hk4-2", name: "PEMBERSIHAN PLAFON GYPSUM - Plafon Gypsum", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "hk4-3", name: "PEMBERSIHAN DEFUSER AC - Plafon Defuser AC", freq: "1 x Seminggu", type: "short", max: 4 }
                 ]
             },
             {
-                category: "6. Pembersihan Outdoor Bangunan",
+                category: "6. PEMBERSIHAN OUTDOOR BANGUNAN",
                 tasks: [
-                    { id: "hk6-t1", name: "Halaman Rumput", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "hk6-t2", name: "Sekitar Gedung", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "hk6-t3", name: "Jalan dengan Aspal", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "hk6-t4", name: "Perkerasan Aspal", freq: "By Project", type: "short", max: 10 },
-                    { id: "hk6-t5", name: "Gutter", freq: "1 x Seminggu", type: "short", max: 4 }
+                    { id: "hk6-1", name: "PERAWATAN TANAMAN & PEMBERSIHAN RUMPUT - Halaman rumput - Sekitar Gedung", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk6-2", name: "PEMBERSIHAN PERAWATAN PERKERASAN ASPAL - Jalan dengan aspal", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk6-3", name: "PEMBERSIHAN GUTTER - Gutter", freq: "1 x Seminggu", type: "short", max: 4 }
                 ]
             },
             {
-                category: "7. Pengelolaan Sampah & Indoor Bangunan",
+                category: "7. PEMBERSIHAN INDOOR BANGUNAN",
                 tasks: [
-                    { id: "hk7-t1", name: "Sampah di Dalam Gedung (TPS/TPA)", freq: "2 x Sehari", type: "short", max: 40 },
-                    { id: "hk7-t2", name: "TV di Ruang Tamu & Kerja", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "hk7-t3", name: "Terminal Telepon", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "hk7-t4", name: "Kulkas", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "hk7-t5", name: "Vertical/Horizontal Blind", freq: "1 x Sebulan", type: "short", max: 1 }
+                    { id: "hk7-1", name: "PENGELOLAAN SAMPAH - Sampah di dalam gedung", freq: "2 x Sehari / 1 x Sebulan / 1 x Seminggu", type: "short", max: 20 },
+                    { id: "hk7-2", name: "PEMBERSIHAN TV - TV di ruang tamu & ruang kerja", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk7-3", name: "PEMBERSIHAN TERMINAL TELEPHONE - Terminal Telepon di meja kerja", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk7-4", name: "PEMBERSIHAN KULKAS - Kulkas", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk7-5", name: "PEMBERSIHAN VERTICAL/HORIZONTAL BLIND - Vertical Blind", freq: "1 x Sebulan / 1 x Seminggu", type: "short", max: 4 }
                 ]
             },
             {
-                category: "8. Pembersihan Meubelair",
+                category: "8. PEMBERSIHAN MEUBELAIR",
                 tasks: [
-                    { id: "hk8-t1", name: "Kursi Eksekutif / Rapat / Staf / Tamu / Makan", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "hk8-t2", name: "Meja Eksekutif / Rapat / Staf / Tamu / Makan", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "hk8-t3", name: "Lemari Rak Buku / Kredensa", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "hk8-t4", name: "Filling Kabinet", freq: "1 x Sehari", type: "short", max: 20 }
+                    { id: "hk8-1", name: "PEMBERSIHAN KURSI KERJA EKSEKUTIF - Kursi Eksekutif", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk8-2", name: "PEMBERSIHAN KURSI RAPAT - Kursi Rapat", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk8-3", name: "PEMBERSIHAN KURSI RESEPTIONIS - Kursi Receptionist", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk8-4", name: "PEMBERSIHAN KURSI RUANG MAKAN - Kursi Ruang Makan", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk8-5", name: "PEMBERSIHAN KURSI STAF - Kursi Staf", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk8-6", name: "PEMBERSIHAN KURSI TAMU - Sofa Ruang Tamu", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk8-7", name: "PEMBERSIHAN MEJA EKSEKUTIF - Meja Eksekutif", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk8-8", name: "PEMBERSIHAN MEJA RAPAT - Meja rapat", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk8-9", name: "PEMBERSIHAN MEJA RESEPTIONIS - Meja Reseptionist", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk8-10", name: "PEMBERSIHAN MEJA RUANG MAKAN - Meja Makan", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk8-11", name: "PEMBERSIHAN MEJA STAF - Meja staf", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk8-12", name: "PEMBERSIHAN MEJA TAMU - Meja Ruang Tamu", freq: "1 x Sehari", type: "short", max: 20 },
+                    { id: "hk8-13", name: "PEMBERSIHAN LEMARI RAK BUKU/KREDENSA - Lemari Rak Buku/Kredensa", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "hk8-14", name: "PEMBERSIHAN FILLING KABINET - Lemari Filling Cabinet", freq: "1 x Sehari", type: "short", max: 20 }
                 ]
             },
             {
-                category: "9. Pest & Rodent Control",
+                category: "9. PEKERJAAN PEST & RODENT CONTROL",
                 tasks: [
-                    { id: "hk9-t1", name: "Pengecekan Lokasi Hama", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "hk9-t2", name: "Penyemprotan / Fogging", freq: "1 x 2 Bulan", type: "long", period: "2 Bulan" },
-                    { id: "hk9-t3", name: "Pengumpanan Racun Tikus", freq: "2 x Sebulan", type: "short", max: 2 }
+                    { id: "hk9-1", name: "PENGECEKAN TERHADAP LOKASI HAMA TIKUS DAN SERANGGA BERKALA - Lingkungan di dalam dan luar gedung", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "hk9-2", name: "PENYEMPROTAN / FOGGING - Lingkungan di dalam dan luar gedung", freq: "1 x 2 Bulan", type: "long", period: "2 Bulan" },
+                    { id: "hk9-3", name: "PENGUMPANAN RACUN TIKUS / RODENT CONTROL - Lingkungan di dalam dan luar gedung", freq: "2 x Sebulan", type: "short", max: 2 }
                 ]
             },
             {
-                category: "10. Hygiene Service",
+                category: "10. PEKERJAAN HYGIENE SERVICE",
                 tasks: [
-                    { id: "hk10-t1", name: "Pengharum Ruangan & Toilet", freq: "1 x Sebulan", type: "short", max: 2 },
-                    { id: "hk10-t2", name: "Hygiene Unit", freq: "1 x Seminggu", type: "short", max: 4 }
+                    { id: "hk10-1", name: "PENYEDIAAN PENGHARUM RUANGAN DI TEMPAT TERTENTU - Pengharum ruangan", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "hk10-2", name: "PENYEDIAAN PENGHARUM TOILET - Hygiene Unit", freq: "1 x Sebulan / 1 x Seminggu", type: "short", max: 4 }
                 ]
             }
         ];
