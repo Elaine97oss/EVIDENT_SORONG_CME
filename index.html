@@ -29,7 +29,7 @@
         @media print {
             @page {
                 size: A4 portrait;
-                margin: 0.5cm;
+                margin: 1cm; /* Mengubah margin menjadi 1cm di semua sisi */
             }
             body { background-color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             /* Menyembunyikan bayangan dan border berlebih saat di print */
@@ -54,7 +54,8 @@
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-8">
+    <!-- Menambahkan class print:max-w-none print:w-full print:px-0 agar konten melebar penuh saat print -->
+    <main class="max-w-7xl mx-auto px-4 py-8 print:max-w-none print:w-full print:px-0 print:py-0">
         
         <!-- Header Print (Hanya muncul saat print) -->
         <div class="hidden print:block mb-8 border-b-2 border-black pb-8">
@@ -168,23 +169,20 @@
                     { id: "c1-1", name: "PEMELIHARAAN DINDING TEMBOK EXTERIOR INTERIOR - Dinding Tembok", freq: "Kondisional / 1 x 6 Bulan", type: "long", period: "6 Bulan" },
                     { id: "c1-2", name: "PEMELIHARAAN DINDING KACA - Dinding Kaca", freq: "1 x Sebulan", type: "short", max: 1 },
                     { id: "c1-3", name: "PEMELIHARAAN DINDING KERAMIK - Dinding Keramik", freq: "1 x Triwulan", type: "long", period: "Triwulan" },
-                    { id: "c1-4", name: "PEMELIHARAAN DINDING MARMER - Dinding Marmer", freq: "1 x Triwulan", type: "long", period: "Triwulan" },
                     { id: "c1-5", name: "PEMELIHARAAN DINDING WALLPAPER - Dinding Wallpaper", freq: "1 x Triwulan", type: "long", period: "Triwulan" },
-                    { id: "c1-6", name: "PEMELIHARAAN DINDING GLASS BLOCK - Dinding Glass Block", freq: "Kondisional", type: "short", max: 2 },
-                    { id: "c1-7", name: "PEMELIHARAAN HALAMAN DAN PAGAR - Halaman", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-8", name: "PEMELIHARAAN JENDELA & PINTU - Jendela Toilet", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-9", name: "PEMELIHARAAN LANTAI KARPET - Lantai Karpet", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-10", name: "PEMELIHARAAN LANTAI KERAMIK - Lantai Keramik", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-11", name: "PEMELIHARAAN LANTAI MARMER - Lantai Marmer", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-12", name: "PEMELIHARAAN LANTAI VYNIL - Lantai Vynil", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-13", name: "PEMELIHARAAN FLOOR HINGE - Floor Hinge", freq: "Kondisional", type: "short", max: 2 },
-                    { id: "c1-14", name: "PEMELIHARAAN PINTU ALUMUNIUM - Pintu Alumunium", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-15", name: "PEMELIHARAAN PINTU BESI - Pintu Besi", freq: "Kondisional", type: "short", max: 2 },
-                    { id: "c1-16", name: "PEMELIHARAAN PINTU PANEL KAYU JATI/KAMPER - Pintu Panel Kayu Jati", freq: "Kondisional", type: "short", max: 2 },
-                    { id: "c1-17", name: "PEMELIHARAAN PINTU TANGGA DARURAT - Pintu Tangga Darurat", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-18", name: "PEMELIHARAAN PLAFOND ACCOUSTIC - Plafond Accoustic", freq: "Kondisional", type: "short", max: 2 },
-                    { id: "c1-19", name: "PEMELIHARAAN PLAFOND BETON CAT - Plafond Beton Cat.", freq: "Kondisional", type: "short", max: 2 },
-                    { id: "c1-20", name: "PEMELIHARAAN PLAFOND GYPSUM - Plafond Gypsum", freq: "Kondisional", type: "short", max: 2 }
+                    { id: "c1-6", name: "PEMELIHARAAN HALAMAN DAN PAGAR - Halaman", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-7", name: "PEMELIHARAAN JENDELA & PINTU - Jendela Toilet", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-8", name: "PEMELIHARAAN LANTAI KARPET - Lantai Karpet", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-9", name: "PEMELIHARAAN LANTAI KERAMIK - Lantai Keramik", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-10", name: "PEMELIHARAAN LANTAI VYNIL - Lantai Vynil", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-11", name: "PEMELIHARAAN FLOOR HINGE - Floor Hinge", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-12", name: "PEMELIHARAAN PINTU ALUMUNIUM - Pintu Alumunium", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-13", name: "PEMELIHARAAN PINTU BESI - Pintu Besi", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-14", name: "PEMELIHARAAN PINTU PANEL KAYU JATI/KAMPER - Pintu Panel Kayu Jati", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-15", name: "PEMELIHARAAN PINTU TANGGA DARURAT - Pintu Tangga Darurat", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-16", name: "PEMELIHARAAN PLAFOND ACCOUSTIC - Plafond Accoustic", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-17", name: "PEMELIHARAAN PLAFOND BETON CAT - Plafond Beton Cat.", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-18", name: "PEMELIHARAAN PLAFOND GYPSUM - Plafond Gypsum", freq: "Kondisional", type: "short", max: 2 }
                 ]
             },
             {
@@ -192,17 +190,16 @@
                 tasks: [
                     { id: "c2-1", name: "PEMELIHARAAN BOOSTER PUMP - Booster Pump", freq: "1 x Sehari", type: "short", max: 20 },
                     { id: "c2-2", name: "PEMELIHARAAN CLOSET - Closet Duduk", freq: "1 x Sehari / 1 x Sebulan / Triwulan", type: "short", max: 20 },
-                    { id: "c2-3", name: "PEMELIHARAAN CLOSET - Closet Jongkok", freq: "1 x Sehari", type: "short", max: 20 },
-                    { id: "c2-4", name: "PEMELIHARAAN INSTALASI PIPA - Instalasi Pipa", freq: "1 x 2 Minggu / 1 x Seminggu", type: "short", max: 4 },
-                    { id: "c2-5", name: "PEMELIHARAAN KRAN - Kran Dinding", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c2-6", name: "PEMELIHARAAN KRAN - Kran Leher Angsa", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c2-7", name: "PEMELIHARAAN POMPA AIR - Pompa Air", freq: "1 x Sebulan / Triwulan", type: "short", max: 2 },
-                    { id: "c2-8", name: "PEMELIHARAAN POMPA AIR - Pompa Transfer", freq: "1 x Sebulan / Triwulan", type: "short", max: 2 },
-                    { id: "c2-9", name: "PEMELIHARAAN SEPTIK TANK/STP - Septik Tank/Stp", freq: "Kondisional", type: "short", max: 2 },
-                    { id: "c2-10", name: "PEMELIHARAAN SHOWER - Shower", freq: "1 x Sebulan", type: "short", max: 1 },
-                    { id: "c2-11", name: "PEMELIHARAAN URINOIR - Urinoir", freq: "1 x Sehari / 1 x Sebulan", type: "short", max: 20 },
-                    { id: "c2-12", name: "PEMELIHARAAN VALVE-VALVE - Valve-Valve", freq: "1 x Sebulan", type: "short", max: 1 },
-                    { id: "c2-13", name: "PEMELIHARAAN WASTAFEL - Wastafel", freq: "1 x Sehari / 1 x Sebulan", type: "short", max: 20 }
+                    { id: "c2-3", name: "PEMELIHARAAN INSTALASI PIPA - Instalasi Pipa", freq: "1 x 2 Minggu / 1 x Seminggu", type: "short", max: 4 },
+                    { id: "c2-4", name: "PEMELIHARAAN KRAN - Kran Dinding", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c2-5", name: "PEMELIHARAAN KRAN - Kran Leher Angsa", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c2-6", name: "PEMELIHARAAN POMPA AIR - Pompa Air", freq: "1 x Sebulan / Triwulan", type: "short", max: 2 },
+                    { id: "c2-7", name: "PEMELIHARAAN POMPA AIR - Pompa Transfer", freq: "1 x Sebulan / Triwulan", type: "short", max: 2 },
+                    { id: "c2-8", name: "PEMELIHARAAN SEPTIK TANK/STP - Septik Tank/Stp", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c2-9", name: "PEMELIHARAAN SHOWER - Shower", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c2-10", name: "PEMELIHARAAN URINOIR - Urinoir", freq: "1 x Sehari / 1 x Sebulan", type: "short", max: 20 },
+                    { id: "c2-11", name: "PEMELIHARAAN VALVE-VALVE - Valve-Valve", freq: "1 x Sebulan", type: "short", max: 1 },
+                    { id: "c2-12", name: "PEMELIHARAAN WASTAFEL - Wastafel", freq: "1 x Sehari / 1 x Sebulan", type: "short", max: 20 }
                 ]
             },
             {
@@ -285,12 +282,6 @@
                     { id: "c13-1", name: "PENGOPERASIAN DAN PEMELIHARAAN TATA SUARA - Sound System/announcer", freq: "1 x Seminggu", type: "short", max: 4 }
                 ]
             },
-            {
-                category: "16. PENGOPERASIAN DAN PEMELIHARARAN ACCES CONTROL",
-                tasks: [
-                    { id: "c16-6", name: "PENGOPERASIAN PEMELIHARAAN ACCESS CONTROL - System Access Control", freq: "1 x Sehari / 1 x Sebulan", type: "short", max: 20 }
-                ]
-            },                        
             {
                 category: "17. PEMELIHARAAN PENANGKAL PETIR DAN GROUNDING SYSTEM",
                 tasks: [
@@ -740,4 +731,3 @@
     </script>
 </body>
 </html>
-
