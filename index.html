@@ -43,7 +43,6 @@
 </head>
 <body class="text-gray-800">
 
-    <!-- Header Screen (Sembunyi saat print) -->
     <header class="bg-red-600 text-white shadow-md sticky top-0 z-50 print:hidden">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div>
@@ -54,10 +53,8 @@
         </div>
     </header>
 
-    <!-- Menambahkan class print:max-w-none print:w-full print:px-0 agar konten melebar penuh saat print -->
     <main class="max-w-7xl mx-auto px-4 py-8 print:max-w-none print:w-full print:px-0 print:py-0">
         
-        <!-- Header Print (Hanya muncul saat print) -->
         <div class="hidden print:block mb-8 border-b-2 border-black pb-8">
             <h2 id="print-judul" class="text-2xl font-bold text-center mb-6 uppercase tracking-wider">Laporan Evident Checklist CMEP</h2>
             <table class="font-bold text-lg w-full mb-8">
@@ -71,25 +68,17 @@
                 </tr>
             </table>
 
-            <!-- Bagian Logo dengan mt-20 agar lebih turun ke bawah -->
             <div class="w-full mx-auto flex justify-center items-center gap-10 mt-12 mb-8 print:mt-56">
                 
-                <!-- CARA MENUKAR LOGO KIRI: Ganti URL di dalam atribut src="" di bawah -->
-                <!-- Anda juga boleh meletakkan fail tempatan, contoh: src="assets/logo1.png" -->
                 <img src="https://www.telkom.co.id/minio/show/data/image_upload/page/1594108255409_compress_logo%20telkom%20indonesia.png" alt="Logo Telkom" class="h-24 object-contain">
                 
-                <!-- Garis pembatas di tengah (Pilihan, boleh dipadam jika tidak perlu) -->
                 <div class="h-20 border-l-2 border-gray-400"></div>
                 
-                <!-- CARA MENUKAR LOGO KANAN: Saat ini menggunakan ikon & teks -->
-                <!-- Jika ada gambar, PADAM kod <div> di bawah ini dan GANTIKAN dengan: -->
-                <!-- <img src="pautan_atau_folder_logo2.png" alt="Logo Kanan" class="h-24 object-contain"> -->
                 <img src="https://telkomproperty.co.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoTelkomHeader.ff908c55.png&w=3840&q=75" alt="Logo Kanan" class="h-24 object-contain">
 
             </div>
         </div>
 
-        <!-- Setting Laporan & Print Button (Sembunyi saat print) -->
         <div class="bg-white p-5 rounded-lg shadow border border-gray-200 mb-6 flex flex-col lg:flex-row gap-4 justify-between items-center print:hidden">
             <div class="flex flex-col sm:flex-row flex-wrap gap-4 w-full lg:w-auto">
                 <div>
@@ -131,7 +120,6 @@
             </button>
         </div>
 
-        <!-- Info Alert (Sembunyi saat print) -->
         <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded shadow-sm print:hidden">
             <div class="flex">
                 <div class="flex-shrink-0"><i class="fas fa-info-circle text-blue-500"></i></div>
@@ -144,15 +132,12 @@
             </div>
         </div>
 
-        <!-- Checklist Container (Populated by JS) -->
         <div id="checklist-container" class="space-y-6 print:space-y-4"></div>
 
     </main>
 
-    <!-- Hidden Global File Input -->
     <input type="file" id="global-uploader" multiple accept="image/*" class="hidden">
 
-    <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-5 right-5 bg-gray-800 text-white px-4 py-3 rounded shadow-lg transform transition-transform duration-300 translate-y-20 opacity-0 z-50 flex items-center print:hidden">
         <i id="toast-icon" class="fas mr-2"></i>
         <span id="toast-msg" class="text-sm">Notifikasi</span>
@@ -169,20 +154,23 @@
                     { id: "c1-1", name: "PEMELIHARAAN DINDING TEMBOK EXTERIOR INTERIOR - Dinding Tembok", freq: "Kondisional / 1 x 6 Bulan", type: "long", period: "6 Bulan" },
                     { id: "c1-2", name: "PEMELIHARAAN DINDING KACA - Dinding Kaca", freq: "1 x Sebulan", type: "short", max: 1 },
                     { id: "c1-3", name: "PEMELIHARAAN DINDING KERAMIK - Dinding Keramik", freq: "1 x Triwulan", type: "long", period: "Triwulan" },
+                    { id: "c1-4", name: "PEMELIHARAAN DINDING MARMER - Dinding Marmer", freq: "1 x Triwulan", type: "long", period: "Triwulan" },
                     { id: "c1-5", name: "PEMELIHARAAN DINDING WALLPAPER - Dinding Wallpaper", freq: "1 x Triwulan", type: "long", period: "Triwulan" },
-                    { id: "c1-6", name: "PEMELIHARAAN HALAMAN DAN PAGAR - Halaman", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-7", name: "PEMELIHARAAN JENDELA & PINTU - Jendela Toilet", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-8", name: "PEMELIHARAAN LANTAI KARPET - Lantai Karpet", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-9", name: "PEMELIHARAAN LANTAI KERAMIK - Lantai Keramik", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-10", name: "PEMELIHARAAN LANTAI VYNIL - Lantai Vynil", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-11", name: "PEMELIHARAAN FLOOR HINGE - Floor Hinge", freq: "Kondisional", type: "short", max: 2 },
-                    { id: "c1-12", name: "PEMELIHARAAN PINTU ALUMUNIUM - Pintu Alumunium", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-13", name: "PEMELIHARAAN PINTU BESI - Pintu Besi", freq: "Kondisional", type: "short", max: 2 },
-                    { id: "c1-14", name: "PEMELIHARAAN PINTU PANEL KAYU JATI/KAMPER - Pintu Panel Kayu Jati", freq: "Kondisional", type: "short", max: 2 },
-                    { id: "c1-15", name: "PEMELIHARAAN PINTU TANGGA DARURAT - Pintu Tangga Darurat", freq: "1 x Seminggu", type: "short", max: 4 },
-                    { id: "c1-16", name: "PEMELIHARAAN PLAFOND ACCOUSTIC - Plafond Accoustic", freq: "Kondisional", type: "short", max: 2 },
-                    { id: "c1-17", name: "PEMELIHARAAN PLAFOND BETON CAT - Plafond Beton Cat.", freq: "Kondisional", type: "short", max: 2 },
-                    { id: "c1-18", name: "PEMELIHARAAN PLAFOND GYPSUM - Plafond Gypsum", freq: "Kondisional", type: "short", max: 2 }
+                    { id: "c1-6", name: "PEMELIHARAAN DINDING GLASS BLOCK - Dinding Glass Block", freq: "Kondisional", type: "short", max: 4 },
+                    { id: "c1-7", name: "PEMELIHARAAN HALAMAN DAN PAGAR - Halaman", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-8", name: "PEMELIHARAAN JENDELA & PINTU TOILET- Jendela Toilet", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-9", name: "PEMELIHARAAN LANTAI KARPET - Lantai Karpet", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-10", name: "PEMELIHARAAN LANTAI KERAMIK - Lantai Keramik", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-11", name: "PEMELIHARAAN LANTAI MARMER - Lantai Marmer", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-12", name: "PEMELIHARAAN LANTAI VYNIL - Lantai Vynil", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-13", name: "PEMELIHARAAN FLOOR HINGE - Floor Hinge", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-14", name: "PEMELIHARAAN PINTU ALUMUNIUM - Pintu Alumunium", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-15", name: "PEMELIHARAAN PINTU BESI - Pintu Besi", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-16", name: "PEMELIHARAAN PINTU PANEL KAYU JATI/KAMPER - Pintu Panel Kayu Jati", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-17", name: "PEMELIHARAAN PINTU TANGGA DARURAT - Pintu Tangga Darurat", freq: "1 x Seminggu", type: "short", max: 4 },
+                    { id: "c1-18", name: "PEMELIHARAAN PLAFOND ACCOUSTIC - Plafond Accoustic", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-19", name: "PEMELIHARAAN PLAFOND BETON CAT - Plafond Beton Cat.", freq: "Kondisional", type: "short", max: 2 },
+                    { id: "c1-20", name: "PEMELIHARAAN PLAFOND GYPSUM - Plafond Gypsum", freq: "Kondisional", type: "short", max: 2 }
                 ]
             },
             {
@@ -438,8 +426,26 @@
 
                 category.tasks.forEach(task => {
                     const taskRow = document.createElement('div');
-                    // Tambahkan properti khusus untuk print agar rapih (page-break-inside-avoid)
-                    taskRow.className = 'p-6 print:p-4 flex flex-col md:flex-row md:items-start justify-between gap-6 hover:bg-gray-50 transition-colors page-break-inside-avoid';
+                    
+                    // --- LOGIKA PENGECEKAN KEKOSONGAN ---
+                    let isFilled = false;
+                    if (task.type === 'long') {
+                        // Dianggap terisi jika status & bulan sudah dipilih
+                        isFilled = !!(taskEvidents[task.id].status && taskEvidents[task.id].month);
+                    } else {
+                        // Dianggap terisi jika ada foto yang diupload
+                        isFilled = taskEvidents[task.id] && taskEvidents[task.id].length > 0;
+                    }
+
+                    // Base class layout
+                    const baseRowClass = 'p-6 print:p-4 flex flex-col md:flex-row md:items-start justify-between gap-6 transition-colors page-break-inside-avoid';
+                    
+                    // Jika kosong: Blok seluruh row jadi abu-abu dengan opacity rendah
+                    if (!isFilled) {
+                        taskRow.className = baseRowClass + ' bg-gray-200 print:bg-gray-200 opacity-60';
+                    } else {
+                        taskRow.className = baseRowClass + ' bg-white hover:bg-gray-50';
+                    }
                     
                     const infoDiv = document.createElement('div');
                     infoDiv.className = 'md:w-1/3 shrink-0';
@@ -454,26 +460,29 @@
                     controlDiv.className = 'md:w-2/3 flex-1 flex flex-col w-full';
                     
                     if (task.type === 'long') {
-                        controlDiv.innerHTML = renderLongPeriodControl(task);
+                        controlDiv.innerHTML = renderLongPeriodControl(task, isFilled);
                     } else {
                         const count = taskEvidents[task.id] ? taskEvidents[task.id].length : 0;
                         const maxStr = task.max > 0 ? task.max : '&infin;';
                         const isFull = task.max > 0 && count >= task.max;
 
                         controlDiv.innerHTML = `
-                            <div class="flex items-center justify-between mb-3 border-b pb-2 print:hidden">
-                                <span class="text-sm font-medium text-gray-600">
-                                    Progress Evident: <span class="${isFull ? 'text-green-600 font-bold' : ''}">${count} / ${maxStr}</span>
+                            <div class="flex items-center justify-between mb-3 border-b border-gray-300 pb-2 print:hidden">
+                                <span class="text-sm font-medium text-gray-700">
+                                    Progress Evident: <span class="${isFull ? 'text-green-700 font-bold' : ''}">${count} / ${maxStr}</span>
                                 </span>
                                 <button onclick="triggerUpload('${task.id}')" 
                                         ${isFull ? 'disabled' : ''}
-                                        class="${isFull ? 'bg-gray-300 cursor-not-allowed' : 'bg-red-600 hover:bg-red-700 active:bg-red-800'} text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm flex items-center">
+                                        class="${isFull ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-600 hover:bg-red-700 active:bg-red-800'} text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm flex items-center">
                                     <i class="fas fa-camera mr-2"></i> Tambah Foto
                                 </button>
                             </div>
-                            <!-- Saat print flex-wrap agar gambar turun jika melebihi kertas -->
                             <div class="flex gap-4 overflow-x-auto pb-2 items-center print:overflow-visible print:flex-wrap print:pt-2" id="gallery-${task.id}">
-                                ${count === 0 ? '<p class="text-sm text-gray-400 italic py-4 print:text-xs">Belum ada evident/Tidak dikerjakan.</p>' : renderGallery(task.id)}
+                                ${count === 0 ? `
+                                    <div class="w-full border-2 border-dashed border-gray-400 rounded p-3 min-h-[42px] flex items-center justify-center print:border-gray-500">
+                                        <span class="text-sm italic font-semibold text-gray-800">Item pekerjaan dilapangan tidak ada/ Tidak dikerjaan.</span>
+                                    </div>
+                                ` : renderGallery(task.id)}
                             </div>
                         `;
                     }
@@ -490,18 +499,22 @@
             bindLongPeriodEvents(activeData);
         }
 
-        function renderLongPeriodControl(task) {
+        // Ditambahkan parameter isFilled untuk menghilangkan background ganda yang bertabrakan saat kosong
+        function renderLongPeriodControl(task, isFilled) {
             const currentStatus = taskEvidents[task.id].status || ''; 
             const currentMonth = taskEvidents[task.id].month || '';
             const hasImage = taskEvidents[task.id].image;
+            const isConfirmed = currentStatus && currentMonth;
+
+            // Jika row sudah berwarna abu-abu, box ini pakai bg-transparent agar menyatu
+            const boxClass = isFilled ? "bg-gray-50 border border-gray-200 p-4 rounded-md" : "bg-transparent p-4 rounded-md";
 
             return `
-                <div class="bg-gray-100 p-4 rounded-md border border-gray-200 print:bg-white print:p-0 print:border-none">
+                <div class="${boxClass} print:bg-transparent print:p-0 print:border-none">
                     
-                    <!-- Dropdown Controls (Sembunyi saat print) -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3 print:hidden">
                         <div>
-                            <label class="block text-xs font-semibold text-gray-600 mb-1 uppercase tracking-wider">Status Pekerjaan (${task.period})</label>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1 uppercase tracking-wider">Status Pekerjaan (${task.period})</label>
                             <select id="status-${task.id}" class="w-full text-sm border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring-red-500 py-2 px-3 border bg-white">
                                 <option value="" ${!currentStatus ? 'selected' : ''}>-- Pilih Status --</option>
                                 <option value="sudah" ${currentStatus === 'sudah' ? 'selected' : ''}>Pekerjaan Sudah Dilaksanakan</option>
@@ -509,7 +522,7 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-gray-600 mb-1 uppercase tracking-wider">Bulan & Tahun (2026)</label>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1 uppercase tracking-wider">Bulan & Tahun (2026)</label>
                             <div class="flex gap-2">
                                 <select id="month-${task.id}" class="flex-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring-red-500 py-2 px-3 border bg-white">
                                     <option value="">Pilih Bulan</option>
@@ -517,27 +530,25 @@
                                         `<option value="${m}" ${currentMonth === m ? 'selected' : ''}>${m}</option>`
                                     ).join('')}
                                 </select>
-                                <span class="py-2 px-3 bg-gray-200 rounded-md text-sm border text-gray-700 font-bold">2026</span>
+                                <span class="py-2 px-3 bg-gray-200 rounded-md text-sm border border-gray-300 text-gray-800 font-bold">2026</span>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Text Preview (Akan Tampil saat Print & Screen) -->
-                    <div class="bg-white print:bg-gray-50 p-3 rounded text-sm text-gray-700 italic border mb-3 min-h-[42px] flex items-center shadow-inner print:shadow-none print:font-semibold" id="text-preview-${task.id}">
-                        ${currentStatus && currentMonth ? `Pekerjaan ${currentStatus} dilaksanakan di Bulan ${currentMonth} 2026` : 'Pekerjaan belum dikonfirmasi statusnya.'}
+                    <div class="${isFilled ? 'bg-white shadow-inner' : 'bg-transparent'} p-3 rounded text-sm italic border border-gray-400 mb-3 min-h-[42px] flex items-center print:shadow-none print:font-semibold text-gray-800" id="text-preview-${task.id}">
+                        ${isConfirmed ? `Pekerjaan ${currentStatus} dilaksanakan di Bulan ${currentMonth} 2026` : 'Item pekerjaan dilapangan tidak ada/ Tidak dikerjaan.'}
                     </div>
 
-                    <!-- Upload Zone -->
-                    <div id="upload-zone-${task.id}" class="${currentStatus === 'sudah' ? 'block' : 'hidden'} border-t print:border-none pt-3 mt-2 border-gray-200">
+                    <div id="upload-zone-${task.id}" class="${currentStatus === 'sudah' ? 'block' : 'hidden'} border-t print:border-none pt-3 mt-2 border-gray-300">
                         ${hasImage 
                             ? `<div class="relative inline-block evident-img-container shadow-sm border p-1 bg-white rounded">
                                  <img src="${hasImage.dataUrl}" class="evident-img">
                                  <button onclick="removeLongPeriodImage('${task.id}', '${hasImage.signature}')" class="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs shadow hover:bg-red-700 border-2 border-white cursor-pointer print:hidden"><i class="fas fa-times"></i></button>
                                </div>`
-                            : `<button onclick="triggerUpload('${task.id}', true)" class="w-full bg-white border-2 border-dashed border-gray-300 text-gray-600 px-4 py-4 rounded-md text-sm font-medium hover:bg-gray-50 hover:border-red-400 transition-colors flex items-center justify-center gap-2 print:hidden">
-                                    <i class="fas fa-upload text-xl text-gray-400"></i>
-                                    <span>Upload Evident Pendukung</span>
-                               </button>`
+                            : `<div onclick="triggerUpload('${task.id}', true)" class="w-full evident-img-container bg-transparent border-2 border-dashed border-gray-400 text-gray-800 rounded-md flex flex-col items-center justify-center cursor-pointer hover:bg-gray-300 transition-colors print:hidden">
+                                    <i class="fas fa-upload text-2xl mb-2"></i>
+                                    <span class="text-sm font-medium italic">Belum ada evident / Klik untuk Upload</span>
+                               </div>`
                         }
                     </div>
                 </div>
@@ -546,7 +557,6 @@
 
         function renderGallery(taskId) {
             return taskEvidents[taskId].map((ev, index) => `
-                <!-- Tambahkan print:mb-2 agar saat membungkus ke bawah ada jarak -->
                 <div class="relative shrink-0 evident-img-container shadow-sm border border-gray-200 p-1 bg-white rounded group print:border-gray-400 print:shadow-none print:mb-2">
                     <img src="${ev.dataUrl}" alt="Evident" class="evident-img print:rounded-none">
                     <div class="absolute bottom-1 right-1 bg-black bg-opacity-60 text-white text-[10px] px-1.5 py-0.5 rounded backdrop-blur-sm print:hidden">
